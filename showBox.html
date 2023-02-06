@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+    }
+    .cont {
+      width: 100%;
+      height: 100vh;
+      background-color: black;
+    }
+    .creat {
+      position: fixed;
+      top: 10px;
+      right: 0;
+    }
+    .boxred {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 5px;
+    }
+    .cont {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tr {
+      transition: all 3s;
+      width: 0;
+      height: 0;
+    }
+  </style>
+  <body>
+    <button class="creat">creat</button>
+    <div class="cont"></div>
+  </body>
+  <script>
+    const creat = document.querySelector(".creat");
+    const cont = document.querySelector(".cont");
+
+    const randomMinMax = (min, max) =>
+      Math.floor(Math.random() * (min + max + 1)) + min;
+    //!  Diagrama randomMinMax(0,1)  randomMinMax(0,2)
+    //  Math.random() 0.01  0.45 0.99
+
+    // Math.floor(Math.random() * (min + max + 1)) + min;
+
+    // Math.floor(Math.random() * (min + max + 1)) + min;
+
+    // Math.floor(Math.random() * (0 + 1)) + 0;
+    // Math.floor(Math.random() * 1) + 0;
+    // 0.01  //0.99
+    // Math.floor(0.01);      ||  Math.floor(0.99 );
+
+    creat.onclick = () => {
+      const boxred = document.createElement("div");
+      boxred.classList.add("boxred");
+
+      boxred.style.background = `rgb(${randomMinMax(0, 255)}, ${randomMinMax(
+        0,
+        255
+      )}, ${randomMinMax(0, 255)})`;
+      cont.append(boxred);
+
+      boxred.oncontextmenu = (e) => {
+        boxred.classList.add("tr");
+        setTimeout(() => {
+          boxred.remove()
+        },3000)
+        return false;
+      };
+    };
+
+    let params = new URL(document.location).searchParams;
+    let name = params.get("name"); // is the string "Jonathan Smith".
+    let age = parseInt(params.get("age")); // is the number 18
+
+    console.log(name,age);
+
+
+  </script>
+</html>
