@@ -1,6 +1,11 @@
 const searchUser = document.querySelector(".searchUser");
+const searshesRepos = document.querySelector(".searshesRepos");
 const params = new URL(document.location).searchParams;
 const login = params.get("login");
+
+const store = {
+  data: [],
+};
 
 const img2 = document.querySelector(".img2");
 
@@ -59,6 +64,25 @@ const showContent = (data) => {
   row.append(nameUser, emailUser, locationUser, folowersUser, folowingUser);
   aboutUserDiv.append(fotoDiv, row);
   searchUser.append(title, aboutUserDiv, row2);
+
+  inp.oninput = (e) => {
+    img2.classList.remove("hidden");
+    const val = e.target.value;
+    const arr2 = store.data.filter((el) =>
+      el.name.toLowerCase().includes(val.toLowerCase())
+    );
+    
+    img2.classList.add("hidden");
+    
+    if (arr2.length === 0) return searshesRepos.textContent = "repos not found '" + val + "'";
+
+    showUserRepositories(arr2);
+    
+
+    
+    console.log(arr2);
+    
+  };
 };
 
 // ? fetch
@@ -90,11 +114,11 @@ const fetchUsers = () => {
 const e = "size,  name, created_at , stargazers_count ,forks";
 
 const showUserRepositories = (data) => {
-  console.log(data);
+  searshesRepos.textContent = "";
   data.forEach((el) => {
     const elDiv = document.createElement("a");
     elDiv.classList.add("elDiv");
-    elDiv.href = data
+    elDiv.href = el.html_url;
 
     const lfDiv = document.createElement("div");
     lfDiv.classList.add("lfDiv");
@@ -106,8 +130,6 @@ const showUserRepositories = (data) => {
     const countSt = document.createElement("p");
     const forks = document.createElement("p");
 
-
-
     size.textContent = "Size: " + el.size;
     elName.textContent = "User name: " + el.name;
     createAt.textContent = "Date of create acount: " + el.created_at;
@@ -118,8 +140,9 @@ const showUserRepositories = (data) => {
     trDiv.append(createAt, countSt, forks);
 
     elDiv.append(lfDiv, trDiv);
+    searshesRepos.append(elDiv);
 
-    searchUser.append(elDiv);
+    searchUser.append(searshesRepos);
   });
 };
 
@@ -132,6 +155,7 @@ const fetchRepost = () => {
     })
     .then((data) => {
       // console.log(data);
+      store.data = data;
       showUserRepositories(data);
     })
     .finally(() => {
@@ -143,12 +167,3 @@ const fetchRepost = () => {
   Promise.all([fetchUsers(), fetchRepost()]);
 })();
 
-
-
-const numberOfOccurrences = function(arr) {
-const res = []
-Object.keys(arr).sort().map(el => res.push([el,arr[el]]))
-return res
-}
-
-// console.log(numberOfOccurrences([1,2,3,4,4,5,6,3,2,1,23,4,2]));

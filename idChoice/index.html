@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            gap: 100px;
+        }
+        .box-input {
+            display: flex;
+            flex-direction: column;
+            gap:10px
+        }
+        .box-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn {
+            background : #878787;
+        }
+    </style>
+   <section class="box-input">
+        <input class="body-color" value="#ffffff" type="color">
+        <input class="text-color" type="color">
+        <input class="btns-color" value="#878787" type="color">
+   </section>
+
+   <section class="box-btns">
+        <button class="btn one">body background</button>
+        <button class="btn two">body text color</button>
+        <button class="btn three"> button colors</button>
+   </section>
+
+   <p>Hello World</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
