@@ -88,7 +88,6 @@ const fetchUsers = (value) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       users.push(data.login);
       L_users.set(users);
       drowNewUser(data);
@@ -135,9 +134,3 @@ search.onkeydown = (e) =>  {
   
 }
 
-
-
-// ' 12 ' // '12'
-// ' '// ''
-// '  '// ''
-// '       '// ''

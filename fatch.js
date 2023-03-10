@@ -78,10 +78,6 @@ const showContent = (data) => {
 
     showUserRepositories(arr2);
     
-
-    
-    console.log(arr2);
-    
   };
 };
 
@@ -149,12 +145,10 @@ const showUserRepositories = (data) => {
 const fetchRepost = () => {
   return fetch(urlRepos)
     .then((response) => {
-      // console.log(response);
       if (response.ok === false) return Promise.reject("Some Error");
       return response.json();
     })
     .then((data) => {
-      // console.log(data);
       store.data = data;
       showUserRepositories(data);
     })
