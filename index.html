@@ -1,65 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    <style>
-        .error{
-            background-color: red;
-            width: 300px;
-            height: 100px;
-            
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          
-         
-        }
+  </head>
+  <body>
+    <div class="bodyError"></div>
+    <header class="header">
+        <div class="searchCont center">
+            <input class="search" placeholder="user login..." />
+            <img class="getBTN" src="./img/search.png">
+        </div>
+
+    </header>
+    <div class="spin">
       
-        /*  */
-
-        .hidden {
-            display: none;
-        }
-        .open {
-            display: block;
-        }
-        .bodyError {
-            position: fixed;
-            right: 0;
-            top: 10px;
-            z-index: 10;
-            
-        }
-        </style>
-        <div class="bodyError"></div>
-     <section>
-        <input class="search" placeholder="find user"/>
-        <button class="getBTN">find</button>
-        <button class="clear">clear</button>
-     </section>   
-     <div class="spin">
-        <img class="img hidden" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="">
+      <img
+        class="img hidden"
+        src="https://www.freeiconspng.com/uploads/spinner-icon-0.gif"
+        alt=""
+      />
     </div>
-    <div class="lists">
-        <!-- <div class="contUser">
-            <img src="" alt="">  avatar_urlbl
-            <h2>Name</h2> login
-            <div>
-                <span>repos publick 44</span> public_repos
-                <span> Im admin </span> site_admin 
-            </div>
-        </div> -->
-    </div>
-
-   
-   
+    <div class="lists"></div>
+    <button class="clear">clear</button>
     <script src="./data.js"></script>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>

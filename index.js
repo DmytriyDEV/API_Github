@@ -38,16 +38,15 @@ const drowNewUser = (user) => {
   div.classList.add('div')
   const span1 = document.createElement("span");
   const span2 = document.createElement("span");
-  const span3 = document.createElement("span");
   const aLink = document.createElement('a')
 
   aLink.href = `./user.html?login=`+user.login
 
   aLink.append(img)
 
-  span1.textContent = "public_repos:" + user.public_gists;
-  span2.textContent = "public_gists:" + user.public_repos;
-  h2.textContent = 'User name:' + user.login;
+  span1.innerHTML = `public_repos: <div> ${user.public_gists} </div>`;
+  span2.innerHTML = `public_gists: <div>${user.public_repos}</div>`;
+  h2.innerHTML = `User name: <div>${ user.login } </div>`;
   img.src = user.avatar_url;
 
   switch (user.site_admin) {
@@ -64,7 +63,7 @@ const drowNewUser = (user) => {
 
   contUser.classList.add("contUser");
 
-  div.append(span1, span2, span3);
+  div.append(span1, span2);
 
   contUser.append(aLink, h2, div);
   lists.prepend(contUser);

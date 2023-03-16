@@ -13,6 +13,7 @@ const creatError = (error) => {
       errorDiv.remove();
     }, 2000);
   };
+  // creatError('text error')
 
 
   const openLoading = () => {
