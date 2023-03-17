@@ -166,8 +166,6 @@ body {
 }
 .error {
   background: #d8151594;
-  /* width: 300px;
-  height: 100px; */
   padding: 10px 30px;
   color: white;
   font-family: Georgia, 'Times New Roman', Times, serif;

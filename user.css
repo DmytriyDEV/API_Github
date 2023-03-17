@@ -1,85 +1,210 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
+body {
+  /* background-image: url("./img/bg.png");
+  background-size: 100% 100%; */
+  background: url("./img/bg.png") 0 0 / 100% 100%, rgba(186, 186, 186, 0) 0 0 / 100% 100%;
+  min-height: 100vh;
 
-
-h2 {
-    text-align: center;
 }
-
-
-.aboutUserDiv {
-    margin-top: 50px;
-    display: flex;
-    gap: 20px;
+body::-webkit-scrollbar { 
+  background : transparent;
+  width: 8px;
 }
-.row2 {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items:center;
-    gap:30px
+body::-webkit-scrollbar-thumb {
+  background: #b4b4b4;
+  border-radius: 10px;
 }
-
-
-.row2 .inp {
-    width: 42%;
-    height: 50px;
-    padding-left: 10px;
-    font-size: 20px;
+/* helper */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
+/* error */
 .bodyError {
-    position: fixed;
-    right: 0;
-    top: 10px;
-    z-index: 10;
-    
+  position: fixed;
+  right: 0;
+  top: 10px;
+  z-index: 10;
 }
-
-.error{
-    background-color: red;
-    width: 300px;
-    height: 100px;
-
+.error {
+  background: #d8151594;
+  padding: 10px 30px;
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* main */
+.searchUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background: rgba(116, 116, 116, 0.222);
+  
+}
+.title {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    color: #ffffff;
+    height: 40px;
   
+    background: #413f3e4d;
+}
+/* top user */
+
+.aboutUserDiv {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
  
+
+  flex-wrap: wrap;
+  width: calc(95% - 30px);
+  padding: 0 15px;
+  max-width: 550px;
 }
-
-
-
-.hidden {
-    display: none;
+.contIMG {
+    width: 36%;
+    display: flex;
+    align-items:center;
+    min-width:200px;
 }
-.open {
-    display: block;
+.contIMG img {
+    width: 100%;
 }
-
-
-.elDiv {
-    margin: 20px auto;
-    border: 1px solid green;
+.leftDataMenu {
     width: 60%;
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    font-size: 20px;
-    text-decoration: none;
-    color: black;
+    color: rgb(246, 246, 246);
+
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items:flex-end;
+    min-width: 250px;
+}
+.leftDataMenu * {
+    width: 100%;
+    text-align: center;
+    line-height: 1.6em;
+}
+.leftDataMenu p span {
+   
+    text-align: center;
+    font-size: 1.2em;
+    color:white;
 }
 
+/* serchRepos */
 
-.lfDiv {
-    width: 50%;
+
+.serchRepos {
+ /* background: rgba(186, 186, 186, 0.51); */
+ display: flex;
+ flex-direction: column;
+ align-items : center;
+}
+.serchRepos .searchInput {
+  margin: 10px 0;
+  font-size: 1.4em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #474747;
+  font-family: 700;
+  color: rgb(7, 7, 7);
+  width: 90%;
+  height: 40px;
+  max-width: 550px;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.542);
+}
+.reposC {
+  height: 100%;
+  width: 90%;
+  max-width: 550px;
 }
 
-.trDiv {
-    width: 50%;
+.repos {
+  border-radius: 7px;
+  margin: 10px 0;
+  padding: 10px;
+  background: #413f3e88;
+  width: 100%;
+  text-align: center;
+}
+.repos * {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.repos a {
+  font-size: 1.2em;
+  color: white;
+}
+.repos .description{
+  color: rgba(212, 212, 212, 0.838);
+  margin: 10px 0;
+}
+.repos .reposData{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  gap: 10px;
+}
+.repos .reposData p{
+ 
+  color: rgba(212, 212, 212, 1);
+  
+}
+.repos .reposData p span{
+  color: white;
+  font-family: 700;
+}
+.repos .forks_count {
+  color: rgba(212, 212, 212, 0.838);
+}
+.repos .forks_count span {
+  color: white;
+  font-family: 700;
+}
+.noFindP {
+  text-align: center;
+  color: white;
+  font-family: 700;
+  font-size: 1.5em;
+}
+
+/* logical */
+
+.hidden {
+  display: none;
+}
+.open {
+  display: block;
+}
+/* loading */
+.spin {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.spin:nth-child(1) {
+  position: fixed;
+  top: 80px;
+  left: 7%;
+  width: 86%;
+  display: flex;
+  justify-content: center;
+}
+.spin img {
+  margin-top: 20px;
+  max-width: 400px;
+  width: 100%;
 }
